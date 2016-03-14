@@ -1,5 +1,5 @@
 
-PS1='\033[1;36m\W\033[0m: ∂ƒ '  # Default
+PS1='\033[1;36m\W\033[0m: ∫ '  # Default
 # PS1='\u@\h:\W\$ '  # Default
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
