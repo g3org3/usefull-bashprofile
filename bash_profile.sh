@@ -1,4 +1,9 @@
 
+PS1='\033[1;36m\W\033[0m: ∂ƒ '  # Default
+# PS1='\u@\h:\W\$ '  # Default
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
 docker-clean() {
     echo "Removing unused containers..."
     docker rmi `docker images | grep none | awk '{print $3}'`;
@@ -46,11 +51,25 @@ pull() {
 	git pull $remote $branch --tags;
 }
 
-# Aliases
+cs() {
+   cd "$1" && la;
+}
+
+# :::::: Aliases :::::::::::::::
+alias back='cd ..';
+alias ls='ls --color';
+alias l='clear;ls -l'
+alias la='clear;ls -Al';
+alias grep='grep --color=auto';
+alias search='la | grep';
+
 alias dc='docker-compose'
+
 alias gis='git status';
 alias gic='git checkout';
 alias gib='git branch';
+
+# ::::::::::::::::::::::::::::::
 
 # Bash Git Prompt
 source ~/.bash-git-prompt/gitprompt.sh
