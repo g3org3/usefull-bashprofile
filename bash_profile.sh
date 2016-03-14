@@ -15,9 +15,7 @@ push() {
 	branch="master";
 
 	if [[ -n "$1" ]]; then
-		if [[ "$1" -ne "_" ]]; then
-			remote=$1
-		fi
+		remote="$1"
 	fi
 
 	if [[ -n "$2" ]]; then
@@ -29,21 +27,20 @@ push() {
 	echo "git push -u "$remote" "$branch" --tags";
 	# git push -u $remote $branch --tags;
 }
+
 pull() {
 	remote="origin";
 	branch="master";
 
 	if [[ -n "$1" ]]; then
-		if [[ "$1" -ne "_" ]]; then
-			remote=$1
-		fi
+		remote=$1
 	fi
 
 	if [[ -n "$2" ]]; then
         branch=$2
-    else
-        branch=`gib | grep \* | awk '{print$2}'`
-    fi
+   else
+		 branch=`gib | grep \* | awk '{print$2}'`
+   fi
 
 	echo "git pull "$remote" "$branch" --tags";
 	# git pull $remote $branch --tags;
@@ -54,3 +51,7 @@ alias dc='docker-compose'
 alias gis='git status';
 alias gic='git checkout';
 alias gib='git branch';
+
+# Bash Git Prompt 
+source ~/.bash-git-prompt/gitprompt.sh
+GIT_PROMPT_ONLY_IN_REPO=1
