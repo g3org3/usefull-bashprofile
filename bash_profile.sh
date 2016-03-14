@@ -25,7 +25,7 @@ push() {
     fi
 
 	echo "git push -u "$remote" "$branch" --tags";
-	# git push -u $remote $branch --tags;
+	git push -u $remote $branch --tags;
 }
 
 pull() {
@@ -43,7 +43,7 @@ pull() {
    fi
 
 	echo "git pull "$remote" "$branch" --tags";
-	# git pull $remote $branch --tags;
+	git pull $remote $branch --tags;
 }
 
 # Aliases
@@ -52,6 +52,6 @@ alias gis='git status';
 alias gic='git checkout';
 alias gib='git branch';
 
-# Bash Git Prompt 
+# Bash Git Prompt
 source ~/.bash-git-prompt/gitprompt.sh
 GIT_PROMPT_ONLY_IN_REPO=1
