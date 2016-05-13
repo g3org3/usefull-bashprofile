@@ -1,4 +1,7 @@
 
+#========================
+# Bash Profile
+#========================
 docker-clean() {
     echo "Removing unused containers..."
     docker rmi `docker images | grep none | awk '{print $3}'`;
@@ -52,6 +55,8 @@ alias gis='git status';
 alias gic='git checkout';
 alias gib='git branch';
 
-# Bash Git Prompt
-source ~/.bash-git-prompt/gitprompt.sh
-GIT_PROMPT_ONLY_IN_REPO=1
+if [[ -f '~/.bash-git-prompt' ]]; then
+   # Bash Git Prompt
+   source ~/.bash-git-prompt/gitprompt.sh
+   GIT_PROMPT_ONLY_IN_REPO=1
+fi
